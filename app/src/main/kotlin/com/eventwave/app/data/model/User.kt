@@ -17,7 +17,7 @@ data class User(
     val userType: UserType,
     val city: String = "",
     val phone: String = "",
-    val createdAt: LocalDateTime = LocalDateTime.now()
+    val createdAt: LocalDateTime
 ) : Parcelable
 
 enum class UserType {
@@ -32,41 +32,47 @@ val sampleUsers = listOf(
         name = "John Doe",
         email = "john.doe@email.com",
         userType = UserType.ATTENDEE,
-        city = "New York"
+        city = "New York",
+        createdAt = LocalDateTime.now().minusDays(30)
     ),
     User(
         id = "org1",
         name = "Festival Productions",
         email = "contact@festivalproductions.com",
         userType = UserType.ORGANIZER,
-        city = "New York"
+        city = "New York",
+        createdAt = LocalDateTime.now().minusDays(60)
     ),
     User(
         id = "org2",
         name = "Blue Note Productions",
         email = "info@bluenote.com",
         userType = UserType.ORGANIZER,
-        city = "New York"
+        city = "New York",
+        createdAt = LocalDateTime.now().minusDays(45)
     ),
     User(
         id = "org3",
         name = "Laugh Track Entertainment",
         email = "bookings@laughtrack.com",
         userType = UserType.ORGANIZER,
-        city = "New York"
+        city = "New York",
+        createdAt = LocalDateTime.now().minusDays(55)
     ),
     User(
         id = "org4",
         name = "TechEvents Inc",
         email = "contact@techevents.com",
         userType = UserType.ORGANIZER,
-        city = "New York"
+        city = "New York",
+        createdAt = LocalDateTime.now().minusDays(40)
     ),
     User(
         id = "org5",
         name = "Sky Events",
         email = "hello@skyevents.com",
         userType = UserType.ORGANIZER,
-        city = "New York"
+        city = "New York",
+        createdAt = LocalDateTime.now().minusDays(35)
     )
 )

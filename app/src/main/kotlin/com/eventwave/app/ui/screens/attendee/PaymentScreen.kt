@@ -321,7 +321,7 @@ private fun PaymentContent(
                 Spacer(modifier = Modifier.height(12.dp))
             }
             
-            if (error != null && isProcessingPayment) {
+            if (error != null) {
                 Spacer(modifier = Modifier.height(16.dp))
                 
                 Card(

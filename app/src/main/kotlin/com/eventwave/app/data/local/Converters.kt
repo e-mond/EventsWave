@@ -19,7 +19,11 @@ class Converters {
     
     @TypeConverter
     fun toLocalDateTime(dateString: String?): LocalDateTime? {
-        return dateString?.let { LocalDateTime.parse(it, formatter) }
+        return try {
+            dateString?.let { LocalDateTime.parse(it, formatter) }
+        } catch (e: Exception) {
+            null
+        }
     }
     
     @TypeConverter
@@ -29,7 +33,11 @@ class Converters {
     
     @TypeConverter
     fun toEventCategory(categoryString: String): EventCategory {
-        return EventCategory.valueOf(categoryString)
+        return try {
+            EventCategory.valueOf(categoryString)
+        } catch (e: IllegalArgumentException) {
+            EventCategory.OTHER // Default fallback
+        }
     }
     
     @TypeConverter
@@ -39,7 +47,11 @@ class Converters {
     
     @TypeConverter
     fun toUserType(userTypeString: String): UserType {
-        return UserType.valueOf(userTypeString)
+        return try {
+            UserType.valueOf(userTypeString)
+        } catch (e: IllegalArgumentException) {
+            UserType.ATTENDEE // Default fallback
+        }
     }
     
     @TypeConverter
@@ -49,7 +61,11 @@ class Converters {
     
     @TypeConverter
     fun toTicketStatus(statusString: String): TicketStatus {
-        return TicketStatus.valueOf(statusString)
+        return try {
+            TicketStatus.valueOf(statusString)
+        } catch (e: IllegalArgumentException) {
+            TicketStatus.ACTIVE // Default fallback
+        }
     }
     
     @TypeConverter
@@ -59,6 +75,10 @@ class Converters {
     
     @TypeConverter
     fun toPaymentMethod(methodString: String): PaymentMethod {
-        return PaymentMethod.valueOf(methodString)
+        return try {
+            PaymentMethod.valueOf(methodString)
+        } catch (e: IllegalArgumentException) {
+            PaymentMethod.CARD // Default fallback
+        }
     }
 }

@@ -25,8 +25,8 @@ data class Event(
     val organizerId: String,
     val organizerName: String,
     val isActive: Boolean = true,
-    val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now()
+    val createdAt: LocalDateTime,
+    val updatedAt: LocalDateTime
 ) : Parcelable
 
 enum class EventCategory(val displayName: String) {
@@ -56,7 +56,9 @@ val sampleEvents = listOf(
         totalTickets = 5000,
         availableTickets = 2500,
         organizerId = "org1",
-        organizerName = "Festival Productions"
+        organizerName = "Festival Productions",
+        createdAt = LocalDateTime.now().minusDays(10),
+        updatedAt = LocalDateTime.now().minusDays(5)
     ),
     Event(
         id = "2",
@@ -72,7 +74,9 @@ val sampleEvents = listOf(
         totalTickets = 200,
         availableTickets = 45,
         organizerId = "org2",
-        organizerName = "Blue Note Productions"
+        organizerName = "Blue Note Productions",
+        createdAt = LocalDateTime.now().minusDays(15),
+        updatedAt = LocalDateTime.now().minusDays(3)
     ),
     Event(
         id = "3",
@@ -88,7 +92,9 @@ val sampleEvents = listOf(
         totalTickets = 150,
         availableTickets = 78,
         organizerId = "org3",
-        organizerName = "Laugh Track Entertainment"
+        organizerName = "Laugh Track Entertainment",
+        createdAt = LocalDateTime.now().minusDays(20),
+        updatedAt = LocalDateTime.now().minusDays(1)
     ),
     Event(
         id = "4",
@@ -104,7 +110,9 @@ val sampleEvents = listOf(
         totalTickets = 1000,
         availableTickets = 750,
         organizerId = "org4",
-        organizerName = "TechEvents Inc"
+        organizerName = "TechEvents Inc",
+        createdAt = LocalDateTime.now().minusDays(25),
+        updatedAt = LocalDateTime.now().minusDays(7)
     ),
     Event(
         id = "5",
@@ -120,6 +128,8 @@ val sampleEvents = listOf(
         totalTickets = 300,
         availableTickets = 120,
         organizerId = "org5",
-        organizerName = "Sky Events"
+        organizerName = "Sky Events",
+        createdAt = LocalDateTime.now().minusDays(12),
+        updatedAt = LocalDateTime.now().minusDays(2)
     )
 )

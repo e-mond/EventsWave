@@ -22,7 +22,7 @@ data class Ticket(
     val totalPrice: Double,
     val qrCode: String,
     val status: TicketStatus,
-    val purchasedAt: LocalDateTime = LocalDateTime.now(),
+    val purchasedAt: LocalDateTime,
     val paymentMethod: PaymentMethod = PaymentMethod.CARD
 ) : Parcelable
 
@@ -55,6 +55,7 @@ val sampleTickets = listOf(
         totalPrice = 150.0,
         qrCode = "QR_JAZZ_NIGHT_${System.currentTimeMillis()}",
         status = TicketStatus.ACTIVE,
+        purchasedAt = LocalDateTime.now().minusDays(5),
         paymentMethod = PaymentMethod.CARD
     ),
     Ticket(
@@ -70,6 +71,7 @@ val sampleTickets = listOf(
         totalPrice = 35.0,
         qrCode = "QR_COMEDY_${System.currentTimeMillis()}",
         status = TicketStatus.ACTIVE,
+        purchasedAt = LocalDateTime.now().minusDays(2),
         paymentMethod = PaymentMethod.MOBILE_MONEY
     )
 )

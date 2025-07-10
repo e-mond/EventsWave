@@ -7,6 +7,7 @@ import java.time.LocalDateTime
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.flow.first
 
 @Singleton
 class TicketRepository @Inject constructor(
@@ -115,10 +116,22 @@ class TicketRepository @Inject constructor(
     }
     
     suspend fun initializeSampleData() {
-        // Check if we already have tickets
-        val existingTickets = ticketDao.getTicketsByUser("user1")
-        // Only initialize if no tickets exist - this is a simple check for demo
-        ticketDao.insertTickets(sampleTickets)
+        try {
+            // Check if we already have tickets by getting the first emission
+            val existingTickets = ticketDao.getTicketsByUser("user1")
+            val tickets = kotlinx.coroutines.flow.first(existingTickets)
+            
+            if (tickets.isEmpty()) {
+                ticketDao.insertTickets(sampleTickets)
+            }
+        } catch (e: Exception) {
+            // If there's an error (like user doesn't exist), still insert sample tickets
+            try {
+                ticketDao.insertTickets(sampleTickets)
+            } catch (insertError: Exception) {
+                // Log or handle insertion error if needed
+            }
+        }
     }
     
     private fun generateQRCode(eventId: String, userId: String): String {
