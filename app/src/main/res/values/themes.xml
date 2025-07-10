@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EventWave" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent_green</item>
+        <item name="colorOnPrimary">@color/pure_black</item>
+        <item name="colorPrimaryContainer">@color/background_green</item>
+        <item name="colorOnPrimaryContainer">@color/pure_black</item>
+        <item name="colorSecondary">@color/gray_600</item>
+        <item name="colorOnSecondary">@color/pure_white</item>
+        <item name="colorSecondaryContainer">@color/gray_100</item>
+        <item name="colorOnSecondaryContainer">@color/pure_black</item>
+        <item name="colorTertiary">@color/accent_green</item>
+        <item name="colorOnTertiary">@color/pure_black</item>
+        <item name="colorTertiaryContainer">@color/background_green</item>
+        <item name="colorOnTertiaryContainer">@color/pure_black</item>
+        <item name="colorError">@color/purple_500</item>
+        <item name="colorOnError">@color/pure_white</item>
+        <item name="colorErrorContainer">@color/purple_200</item>
+        <item name="colorOnErrorContainer">@color/pure_black</item>
+        <item name="colorOutline">@color/gray_300</item>
+        <item name="colorOutlineVariant">@color/gray_200</item>
+        <item name="colorSurface">@color/pure_white</item>
+        <item name="colorOnSurface">@color/pure_black</item>
+        <item name="colorSurfaceVariant">@color/gray_50</item>
+        <item name="colorOnSurfaceVariant">@color/gray_600</item>
+        <item name="colorSurfaceContainer">@color/gray_100</item>
+        <item name="colorSurfaceContainerHigh">@color/gray_200</item>
+        <item name="colorSurfaceContainerHighest">@color/gray_300</item>
+        <item name="colorSurfaceContainerLow">@color/gray_50</item>
+        <item name="colorSurfaceContainerLowest">@color/pure_white</item>
+        <item name="android:colorBackground">@color/background_green</item>
+        <item name="colorOnBackground">@color/pure_black</item>
+    </style>
+
+    <style name="Theme.EventWave" parent="Base.Theme.EventWave" />
+</resources>
