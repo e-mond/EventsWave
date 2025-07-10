@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventWave</string>
+    <string name="tagline">Your vibe. Your city. Your wave.</string>
+    
+    <!-- Navigation -->
+    <string name="nav_events">Events</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_tickets">Tickets</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_create">Create</string>
+    <string name="nav_manage">Manage</string>
+    <string name="nav_analytics">Analytics</string>
+    
+    <!-- Event Details -->
+    <string name="book_now">Book Now</string>
+    <string name="event_details">Event Details</string>
+    <string name="venue">Venue</string>
+    <string name="date_time">Date &amp; Time</string>
+    <string name="tickets_available">Tickets Available</string>
+    
+    <!-- Booking Flow -->
+    <string name="select_tickets">Select Tickets</string>
+    <string name="payment">Payment</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="payment_success">Payment Successful!</string>
+    <string name="ticket_generated">Your ticket has been generated</string>
+    
+    <!-- Organizer -->
+    <string name="create_event">Create Event</string>
+    <string name="event_title">Event Title</string>
+    <string name="event_description">Event Description</string>
+    <string name="ticket_price">Ticket Price</string>
+    <string name="total_tickets">Total Tickets</string>
+    <string name="save_event">Save Event</string>
+    
+    <!-- Common -->
+    <string name="search_hint">Search events, venues, artists...</string>
+    <string name="filter">Filter</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="past">Past</string>
+    <string name="all">All</string>
+</resources>
