@@ -336,7 +336,13 @@ private fun EventDetailContent(
                         Spacer(modifier = Modifier.height(16.dp))
                         
                         LinearProgressIndicator(
-                            progress = { (event.totalTickets - event.availableTickets).toFloat() / event.totalTickets.toFloat() },
+                            progress = { 
+                                if (event.totalTickets > 0) {
+                                    (event.totalTickets - event.availableTickets).toFloat() / event.totalTickets.toFloat()
+                                } else {
+                                    0f
+                                }
+                            },
                             modifier = Modifier.fillMaxWidth(),
                             color = AccentGreen,
                             trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.2f)

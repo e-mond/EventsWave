@@ -62,6 +62,7 @@ class TicketRepository @Inject constructor(
                     totalPrice = totalPrice,
                     qrCode = qrCode,
                     status = TicketStatus.ACTIVE,
+                    purchasedAt = LocalDateTime.now(),
                     paymentMethod = paymentMethod
                 )
                 
