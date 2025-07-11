@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Material3 theme for API 31+ with full Material You support -->
+    <style name="Theme.EventWave" parent="Base.Theme.EventWave.Material3">
+        <!-- This will use the Material3 theme defined in main themes.xml -->
+    </style>
+</resources>

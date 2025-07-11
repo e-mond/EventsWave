@@ -62,8 +62,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     
-    // Ensure Material Components are included
+    // Ensure Material Components and AppCompat are included for compatibility
     implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
