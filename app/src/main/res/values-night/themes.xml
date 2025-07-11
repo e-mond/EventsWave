@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+THIS SHOULD BE A LINTER ERROR<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Dark theme. -->
     <style name="Base.Theme.EventWave" parent="Theme.Material3.DayNight.NoActionBar">

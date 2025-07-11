@@ -62,11 +62,15 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     
+    // Ensure Material Components are included
+    implementation("com.google.android.material:material:1.11.0")
+    
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
     
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
     
     // Hilt for Dependency Injection
     implementation("com.google.dagger:hilt-android:2.48")
