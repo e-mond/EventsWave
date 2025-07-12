@@ -2,34 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Dark theme. -->
     <style name="Base.Theme.EventWave" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/accent_green</item>
-        <item name="colorOnPrimary">@color/pure_black</item>
-        <item name="colorPrimaryContainer">@color/gray_800</item>
-        <item name="colorOnPrimaryContainer">@color/accent_green</item>
-        <item name="colorSecondary">@color/gray_400</item>
-        <item name="colorOnSecondary">@color/gray_900</item>
-        <item name="colorSecondaryContainer">@color/gray_700</item>
-        <item name="colorOnSecondaryContainer">@color/gray_200</item>
-        <item name="colorTertiary">@color/accent_green</item>
-        <item name="colorOnTertiary">@color/pure_black</item>
-        <item name="colorTertiaryContainer">@color/gray_800</item>
-        <item name="colorOnTertiaryContainer">@color/accent_green</item>
-        <item name="colorError">@color/purple_200</item>
-        <item name="colorOnError">@color/pure_black</item>
-        <item name="colorErrorContainer">@color/purple_700</item>
-        <item name="colorOnErrorContainer">@color/purple_200</item>
-        <item name="colorOutline">@color/gray_600</item>
-        <item name="colorOutlineVariant">@color/gray_700</item>
-        <item name="colorSurface">@color/dark_surface</item>
-        <item name="colorOnSurface">@color/pure_white</item>
-        <item name="colorSurfaceVariant">@color/gray_800</item>
-        <item name="colorOnSurfaceVariant">@color/gray_300</item>
-        <item name="colorSurfaceContainer">@color/gray_800</item>
-        <item name="colorSurfaceContainerHigh">@color/gray_700</item>
-        <item name="colorSurfaceContainerHighest">@color/gray_600</item>
-        <item name="colorSurfaceContainerLow">@color/gray_900</item>
-        <item name="colorSurfaceContainerLowest">@color/pure_black</item>
-        <item name="android:colorBackground">@color/dark_background</item>
-        <item name="colorOnBackground">@color/pure_white</item>
+        <!-- Theme is handled by Compose Material3 -->
     </style>
 </resources>

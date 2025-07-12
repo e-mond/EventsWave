@@ -16,8 +16,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavArgument
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.eventwave.app.navigation.NavigationRoutes
 import com.eventwave.app.ui.screens.attendee.EventListScreen
+import com.eventwave.app.ui.screens.attendee.EventDetailScreen
 import com.eventwave.app.ui.screens.splash.SplashScreen
 import com.eventwave.app.ui.theme.EventWaveTheme
 import com.eventwave.app.ui.viewmodel.MainViewModel
@@ -67,6 +71,21 @@ fun EventWaveApp() {
         
         composable(NavigationRoutes.AttendeeMain.route) {
             EventListScreen(
+                navController = navController
+            )
+        }
+        
+        composable(
+            route = NavigationRoutes.EventDetail.route,
+            arguments = listOf(
+                navArgument("eventId") {
+                    type = NavType.StringType
+                }
+            )
+        ) { backStackEntry ->
+            val eventId = backStackEntry.arguments?.getString("eventId") ?: ""
+            EventDetailScreen(
+                eventId = eventId,
                 navController = navController
             )
         }

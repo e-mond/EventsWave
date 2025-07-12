@@ -19,20 +19,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavController
 import com.eventwave.app.data.model.EventCategory
 import com.eventwave.app.navigation.NavigationRoutes
 import com.eventwave.app.ui.components.EventCard
 import com.eventwave.app.ui.viewmodel.EventListViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EventListScreen(
     navController: NavController,
     viewModel: EventListViewModel = hiltViewModel()
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiState by viewModel.uiState.collectAsState()
     var showFilters by remember { mutableStateOf(false) }
     
     Column(
