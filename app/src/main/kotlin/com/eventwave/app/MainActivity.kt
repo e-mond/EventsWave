@@ -24,10 +24,12 @@ import com.eventwave.app.navigation.NavigationRoutes
 import com.eventwave.app.ui.screens.attendee.EventListScreen
 import com.eventwave.app.ui.screens.attendee.EventDetailScreen
 import com.eventwave.app.ui.screens.auth.LoginScreen
+import com.eventwave.app.ui.screens.auth.SignUpScreen
 import com.eventwave.app.ui.screens.splash.SplashScreen
 import com.eventwave.app.ui.theme.EventWaveTheme
 import com.eventwave.app.ui.viewmodel.LoginViewModel
 import com.eventwave.app.ui.viewmodel.MainViewModel
+import com.eventwave.app.ui.viewmodel.SignUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,6 +55,7 @@ fun EventWaveApp() {
     val navController = rememberNavController()
     val mainViewModel: MainViewModel = hiltViewModel()
     val loginViewModel: LoginViewModel = hiltViewModel()
+    val signUpViewModel: SignUpViewModel = hiltViewModel()
     
     // Initialize sample data
     LaunchedEffect(Unit) {
@@ -82,10 +85,24 @@ fun EventWaveApp() {
                     // TODO: Navigate to forgot password screen
                 },
                 onSignUpClick = {
-                    // TODO: Navigate to sign up screen
+                    navController.navigate(NavigationRoutes.SignUp.route)
                 },
                 onHelpClick = {
                     // TODO: Show help dialog
+                }
+            )
+        }
+        
+        composable(NavigationRoutes.SignUp.route) {
+            SignUpScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                },
+                onSignUpClick = { fullName, emailOrPhone, password, confirmPassword, role ->
+                    signUpViewModel.signUp(fullName, emailOrPhone, password, confirmPassword, role)
+                },
+                onSignInClick = {
+                    navController.popBackStack()
                 }
             )
         }
@@ -122,6 +139,17 @@ fun EventWaveApp() {
                 popUpTo(NavigationRoutes.Login.route) { inclusive = true }
             }
             loginViewModel.resetLoginState()
+        }
+    }
+    
+    // Handle signup state changes
+    LaunchedEffect(signUpViewModel.signUpState.collectAsState().value) {
+        val signUpState = signUpViewModel.signUpState.value
+        if (signUpState.isSignedUp) {
+            navController.navigate(NavigationRoutes.AttendeeMain.route) {
+                popUpTo(NavigationRoutes.SignUp.route) { inclusive = true }
+            }
+            signUpViewModel.resetSignUpState()
         }
     }
 }

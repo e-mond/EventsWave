@@ -4,6 +4,7 @@ sealed class NavigationRoutes(val route: String) {
     // Main Navigation
     object Splash : NavigationRoutes("splash")
     object Login : NavigationRoutes("login")
+    object SignUp : NavigationRoutes("signup")
     
     // Attendee Navigation
     object AttendeeMain : NavigationRoutes("attendee_main")
