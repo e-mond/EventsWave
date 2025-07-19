@@ -1,3 +1,4 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
 package com.eventwave.app.ui.screens.attendee
 
 import androidx.compose.foundation.layout.*
@@ -26,7 +27,6 @@ import com.eventwave.app.navigation.NavigationRoutes
 import com.eventwave.app.ui.components.EventCard
 import com.eventwave.app.ui.viewmodel.EventListViewModel
 
-@file:OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EventListScreen(
     navController: NavController,

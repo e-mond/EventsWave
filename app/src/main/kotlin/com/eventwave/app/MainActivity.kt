@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
@@ -22,8 +23,10 @@ import androidx.navigation.navArgument
 import com.eventwave.app.navigation.NavigationRoutes
 import com.eventwave.app.ui.screens.attendee.EventListScreen
 import com.eventwave.app.ui.screens.attendee.EventDetailScreen
+import com.eventwave.app.ui.screens.auth.LoginScreen
 import com.eventwave.app.ui.screens.splash.SplashScreen
 import com.eventwave.app.ui.theme.EventWaveTheme
+import com.eventwave.app.ui.viewmodel.LoginViewModel
 import com.eventwave.app.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,6 +52,7 @@ class MainActivity : ComponentActivity() {
 fun EventWaveApp() {
     val navController = rememberNavController()
     val mainViewModel: MainViewModel = hiltViewModel()
+    val loginViewModel: LoginViewModel = hiltViewModel()
     
     // Initialize sample data
     LaunchedEffect(Unit) {
@@ -62,9 +66,26 @@ fun EventWaveApp() {
         composable(NavigationRoutes.Splash.route) {
             SplashScreen(
                 onNavigateToMain = {
-                    navController.navigate(NavigationRoutes.AttendeeMain.route) {
+                    navController.navigate(NavigationRoutes.Login.route) {
                         popUpTo(NavigationRoutes.Splash.route) { inclusive = true }
                     }
+                }
+            )
+        }
+        
+        composable(NavigationRoutes.Login.route) {
+            LoginScreen(
+                onLoginClick = { emailOrPhone, password ->
+                    loginViewModel.login(emailOrPhone, password)
+                },
+                onForgotPasswordClick = {
+                    // TODO: Navigate to forgot password screen
+                },
+                onSignUpClick = {
+                    // TODO: Navigate to sign up screen
+                },
+                onHelpClick = {
+                    // TODO: Show help dialog
                 }
             )
         }
@@ -91,5 +112,16 @@ fun EventWaveApp() {
         }
         
         // Add more navigation destinations here as we build them
+    }
+    
+    // Handle login state changes
+    LaunchedEffect(loginViewModel.loginState.collectAsState().value) {
+        val loginState = loginViewModel.loginState.value
+        if (loginState.isLoggedIn) {
+            navController.navigate(NavigationRoutes.AttendeeMain.route) {
+                popUpTo(NavigationRoutes.Login.route) { inclusive = true }
+            }
+            loginViewModel.resetLoginState()
+        }
     }
 }
